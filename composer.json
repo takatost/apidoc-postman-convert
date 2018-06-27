@@ -1,0 +1,24 @@
+{
+    "name": "takatost/apidoc-postman-convert",
+    "description": "Apidoc convert to postman application.",
+    "keywords": ["apidoc", "postman", "convert"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "takatost",
+            "email": "takatost@gmail.com"
+        }
+    ],
+    "autoload": {
+      "psr-4": {
+        "Takatost\\ApidocPostmanConvert\\Console\\": "src/"
+      }
+    },
+    "require": {
+      "symfony/console": "~3.0|~4.0",
+      "league/html-to-markdown": "4.7.*"
+    },
+    "bin": [
+      "apconvert"
+    ]
+}
