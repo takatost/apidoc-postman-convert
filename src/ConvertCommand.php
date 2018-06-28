@@ -78,7 +78,7 @@ class ConvertCommand extends Command
         ];
 
         if ($projectArray) {
-            $postmanArray['collection']['info']['name'] = $projectArray['name'];
+            $postmanArray['collection']['info']['name'] = $projectArray['name'] ? $projectArray['name'] : 'API 文档';
             $postmanArray['collection']['info']['version'] = $projectArray['version'];
 
 
