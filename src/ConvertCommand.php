@@ -191,12 +191,12 @@ class ConvertCommand extends Command
                     }
 
                     $postmanFolderItem['response'] = $postmanResponses;
-                    $postmanFolderItems[] = $postmanFolderItem;
                 }
-                $postmanFolder['item'] = $postmanFolderItems;
+                $postmanFolderItems[] = $postmanFolderItem;
             }
 
             if ($postmanFolderItems) {
+                $postmanFolder['item'] = $postmanFolderItems;
                 $postmanItems[] = $postmanFolder;
             }
         }
