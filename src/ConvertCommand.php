@@ -134,7 +134,7 @@ class ConvertCommand extends Command
                             $queries[] = [
                                 'key'         => $query['field'],
                                 'value'       => isset($query['defaultValue']) ? $query['defaultValue'] : '',
-                                'description' => ($query['optional'] ? '[可选]' : '') . str_replace(['<p>', '</p>'], '', $query['description']),
+                                'description' => ($query['optional'] ? '[可选] ' : '') . str_replace(['<p>', '</p>'], '', $query['description']),
                             ];
                         }
 
@@ -147,7 +147,7 @@ class ConvertCommand extends Command
                                 'key'         => $query['field'],
                                 'value'       => isset($query['defaultValue']) ? $query['defaultValue'] : '',
                                 "type"        => "text",
-                                'description' => ($query['optional'] ? '[可选]' : '') . str_replace(['<p>', '</p>'], '', $query['description']),
+                                'description' => ($query['optional'] ? '[可选] ' : '') . str_replace(['<p>', '</p>'], '', $query['description']),
                             ];
                         }
 
