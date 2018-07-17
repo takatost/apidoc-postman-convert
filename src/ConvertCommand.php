@@ -192,6 +192,33 @@ class ConvertCommand extends Command
 
                     $postmanFolderItem['response'] = $postmanResponses;
                 }
+
+                if (isset($item['error'])) {
+                    $postmanResponses = [];
+                    foreach ($item['error']['fields'] as $errorTitle => $responseErrors) {
+                        $errorContent = '';
+
+                        foreach ($responseErrors as $error) {
+                            $errorContent .= $error['field'] . ': ' . str_replace(['<p>', '</p>'], '', $error['description']) . "\n";
+                        }
+
+                        $postmanResponse = [
+                            'name'   => '错误码',
+                            'body'   => $errorContent,
+                            'status' => '400 Bad Request',
+                            'code'   => 400,
+                        ];
+
+                        $postmanResponses[] = $postmanResponse;
+                    }
+
+                    if (isset($postmanFolderItem['response'])) {
+                        $postmanFolderItem['response'] = array_merge($postmanResponses, $postmanFolderItem['response']);
+                    } else {
+                        $postmanFolderItem['response'] = $postmanResponses;
+                    }
+                }
+
                 $postmanFolderItems[] = $postmanFolderItem;
             }
 
